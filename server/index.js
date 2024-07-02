@@ -3,12 +3,12 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import cors from "cors"
 import bodyParser from "body-parser"
-import multer from "multer"
+import multer, { diskStorage } from "multer"
 import helmet from "helmet"
 import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
-import { log } from "console"
+import connectDb from "./databse/connect.js"
 
 //configuration
 const __filename=fileURLToPath(import.meta.url);
@@ -24,6 +24,14 @@ app.use(bodyParser.json({limit:"30mb",extended:true}))
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 app.use("/assets",express.static(path.join(__dirname,'public/assets')));
+ 
+//FILE STORAGE
+const storage =diskStorage({
+    destination:function(req,res,cb){
+        cb(null,file.orginalname)
+    }
+});
+const upload={storage}
 
 app.get("/",(req,res)=>{
     res.send("hey there");
@@ -31,6 +39,7 @@ app.get("/",(req,res)=>{
 //server
 const startServer= ()=>{
     try {
+        connectDb(process.env.MONGO_URL);
         app.listen(8000,()=>{
             console.log("server running on http://localhost:8000");
         })
