@@ -9,6 +9,7 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import connectDb from "./databse/connect.js"
+import { register } from "./controllers/auth.js"
 
 //configuration
 const __filename=fileURLToPath(import.meta.url);
@@ -32,6 +33,9 @@ const storage =diskStorage({
     }
 });
 const upload={storage}
+
+//ROUTES
+app.use("/api/auth/register",upload.single("picture"),register)
 
 app.get("/",(req,res)=>{
     res.send("hey there");
