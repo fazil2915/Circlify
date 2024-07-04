@@ -9,6 +9,7 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import connectDb from "./databse/connect.js"
+import authRoutes from "./routes/auth.js"
 import { register } from "./controllers/auth.js"
 
 //configuration
@@ -37,9 +38,11 @@ const storage = multer.diskStorage({
   });
   const upload = multer({ storage });
 
-//ROUTES
+//ROUTES with files
 app.use("/api/auth/register",upload.single("picture"),register)
 
+//ROUTES 
+app.use("/api/auth",authRoutes)
 app.get("/",(req,res)=>{
     res.send("hey there");
 })
