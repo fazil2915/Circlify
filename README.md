@@ -7,5 +7,5 @@ A social media application
 ##### ER diagram :
 
 
-![Diagram](https://raw.githubusercontent.com/fazil2915/Circlify/main/images/diagram.png)
+![Diagram](https://raw.githubusercontent.com/fazil2915/Circlify/main/server/images/diagram.png)
 
