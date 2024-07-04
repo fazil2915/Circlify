@@ -10,6 +10,7 @@ import path from "path"
 import { fileURLToPath } from "url"
 import connectDb from "./databse/connect.js"
 import authRoutes from "./routes/auth.js"
+import userRoute from "./routes/users.js"
 import { register } from "./controllers/auth.js"
 
 //configuration
@@ -43,6 +44,7 @@ app.use("/api/auth/register",upload.single("picture"),register)
 
 //ROUTES 
 app.use("/api/auth",authRoutes)
+app.use("/api/user",userRoute)
 app.get("/",(req,res)=>{
     res.send("hey there");
 })
