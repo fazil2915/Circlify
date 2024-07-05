@@ -39,7 +39,7 @@ export const register=async(req,res)=>{
     }
 }
 
-//lLOGIN FUNCTION
+//LOGIN FUNCTION
 
 export const login=async (req,res)=>{
     try {

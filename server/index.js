@@ -11,7 +11,11 @@ import { fileURLToPath } from "url"
 import connectDb from "./databse/connect.js"
 import authRoutes from "./routes/auth.js"
 import userRoute from "./routes/users.js"
+import postRoute from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
+import {createPost} from "./controllers/posts.js"
+import { verifyToken } from "./middleware/auth.js"
+
 
 //configuration
 const __filename=fileURLToPath(import.meta.url);
@@ -41,10 +45,11 @@ const storage = multer.diskStorage({
 
 //ROUTES with files
 app.use("/api/auth/register",upload.single("picture"),register)
-
+app.use("/api/posts",verifyToken,upload.single("picture"),createPost);
 //ROUTES 
 app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoute)
+app.use("/api/posts",postRoute)
 app.get("/",(req,res)=>{
     res.send("hey there");
 })
