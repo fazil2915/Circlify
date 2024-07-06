@@ -15,6 +15,9 @@ import postRoute from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
 import {createPost} from "./controllers/posts.js"
 import { verifyToken } from "./middleware/auth.js"
+import User from "./models/User.js";
+import Post from "./models/Post.js";
+import {users,posts} from "./data/index.js"
 
 
 //configuration
@@ -59,7 +62,9 @@ const startServer= ()=>{
         connectDb(process.env.MONGO_URL);
         app.listen(8000,()=>{
             console.log("server running on http://localhost:8000");
-        })
+        })//adding data
+        // User.insertMany(users);
+        // Post.insertMany(posts);
     } catch (error) {
         console.log(error);
     }

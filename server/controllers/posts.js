@@ -11,6 +11,7 @@ try {
         userId,
         firstName:user.firstName,
         lastName:user.lastName,
+        location:user.location,
         description,
         userPicturePath:user.picturePath,
         picturePath,
@@ -23,7 +24,7 @@ try {
     const post=await Post.find();
     res.status(200).json(post)
 } catch (error) {
-    res.status(409).json({err:error.message})
+    res.status(409).json({cp:error.message})
 }
 }
 
@@ -31,7 +32,7 @@ try {
 
 export const getFeedPosts=async (req,res)=>{
     try {
-        const post =await Post.find()
+        const post =await Post.find();
         res.status(200).json(post)
     } catch (error) {
         res.status(404).json({err:error.messsage})
@@ -41,7 +42,9 @@ export const getFeedPosts=async (req,res)=>{
 export const getUserPosts =async (req,res)=>{
     try {
         const {userId} =req.params;
+        console.log(userId);
         const post =await Post.find({userId});
+        console.log(post);
         res.status(200).json(post);
 
     } catch (error) {
