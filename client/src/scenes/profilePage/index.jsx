@@ -1,5 +1,5 @@
-const profilePage =()=>{
+const ProfilePage =()=>{
     return <div>profilePage</div>
   };
   
-  export default profilePage;
+  export default ProfilePage;
