@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 import authReducer from "./state";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
@@ -29,12 +29,14 @@ const store = configureStore({
       },
     }),
 });
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
-  <PersistGate loading={null} persistor={persistStore(store)}>
-    <App />
-    </PersistGate>
+      <PersistGate loading={null} persistor={persistStore(store)}>
+        <App />
+      </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
