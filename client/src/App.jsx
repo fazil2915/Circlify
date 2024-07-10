@@ -1,14 +1,14 @@
 import {BrowserRouter ,Routes,Route} from 'react-router-dom';
-import HomePage from './scenes/homePage';
-import LoginPage from "./scenes/loginPage";
-import ProfilePage from "./scenes/profilePage";
+import HomePage from '@/scenes/homePage';
+import LoginPage from "@/scenes/loginPage";
+import ProfilePage from "@/scenes/profilePage";
 
 
 function App() {
   
 
   return (
-    <div>
+    <>
      <BrowserRouter>
      <Routes>
       <Route path='/' element={<LoginPage/>}/>
@@ -17,8 +17,8 @@ function App() {
      </Routes>
      </BrowserRouter> 
        
-    </div>
-  )
+    </>
+  );
 }
 
 export default App
