@@ -33,7 +33,7 @@ export const register=async(req,res)=>{
             impression:Math.floor(Math.random()*10000)
         });
         const savedUser=await newUser.save();
-        res.send(201).json(savedUser)
+        res.status(201).json(savedUser)
     } catch (error) {
         res.status(500).json({err:error.message})
     }
