@@ -43,7 +43,7 @@ export const getUserPosts =async (req,res)=>{
     try {
         const {userId} =req.params;
         console.log(userId);
-        const post =await Post.find({userId});
+        const post =await Post.findById({userId});
         console.log(post);
         res.status(200).json(post);
 
