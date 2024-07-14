@@ -27,8 +27,8 @@ import {
     const dispatch = useDispatch();
     const token = useSelector((state) => state.token);
     const loggedInUserId = useSelector((state) => state.user._id);
-    const isLiked = Boolean(likes[loggedInUserId]);
-    const likeCount = Object.keys(likes).length;
+    const isLiked = true;
+    // const likeCount = Object.keys(likes).length;
   
     const { palette } = useTheme();
     const main = palette.neutral.main;
@@ -77,7 +77,7 @@ import {
                   <FavoriteBorderOutlined />
                 )}
               </IconButton>
-              <Typography>{likeCount}</Typography>
+              <Typography></Typography>
             </FlexBetween>
   
             <FlexBetween gap="0.3rem">

@@ -23,15 +23,17 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
 
     const patchFriends = async () => {
         const response = await fetch(
-            `http://localhost:8000/users/${_id}/${friendId}`,
+            `http://localhost:8000/api/user/${_id}/${friendId}`,
             {
-                method: "POST",
-                headers: { Authorzation: `Bearer ${token}` },
-                "Content-Type": "application/json"
-            },
-        );
-        const data = await response.json();
-        dispatch(setFriends({ friends: data }));
+                method: "PATCH",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            const data = await response.json();
+            dispatch(setFriends({ friends: data }));
     };
     return (
         <FlexBetween>
