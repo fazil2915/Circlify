@@ -48,7 +48,7 @@ const storage = multer.diskStorage({
 
 //ROUTES with files
 app.use("/api/auth/register",upload.single("picture"),register)
-app.use("/api/posts",verifyToken,upload.single("picture"),createPost);
+app.use("/posts",verifyToken,upload.single("picture"),createPost);
 //ROUTES 
 app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoute)

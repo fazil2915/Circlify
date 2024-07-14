@@ -16,7 +16,7 @@ import {
 import FlexBetween from "@/components/FlexBetween"
 import Dropzone from "react-dropzone"
 import UserImage from "@/components/userImage"
-import WidgetWrapper from "@/components/widgetWrapper"
+import WidgetWrapper from "@/components/WidgetWrapper"
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import  { setPosts } from "@/state"
@@ -43,7 +43,7 @@ const MyPostWidget = ({ picturePath }) => {
         formData.append("picturePath", image.name);
       }
   
-      const response = await fetch(`http://localhost:8000/api/posts`, {
+      const response = await fetch(`http://localhost:8000/posts`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

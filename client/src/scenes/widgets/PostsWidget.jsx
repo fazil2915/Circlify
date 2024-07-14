@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "@/state"
 import PostWidget from "./PostWidget"
 
-const PostsWidget = ({ userId, isProfile }) => {
+const PostsWidget = ({ userId, isProfile=false }) => {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts)
     const token = useSelector((state) => state.token);
@@ -18,7 +18,7 @@ const PostsWidget = ({ userId, isProfile }) => {
     }
 
     const getUserPosts = async () => {
-        const response = await fetch(`http:/localhost:8000/posts/${userId}/posts`, {
+        const response = await fetch(`http://localhost:8000/api/posts/${userId}/post`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -35,20 +35,20 @@ const PostsWidget = ({ userId, isProfile }) => {
 
     return (
         <>
-            {posts.map(
-              ({
-                _id,
-                userId,
-                firstName,
-                lastName,
-                description,
-                location,
-                picturePath,
-                userPicturePath,
-                likes,
-                comments,
-              })=>(
-                <PostWidget
+          {posts.map(
+            ({
+              _id,
+              userId,
+              firstName,
+              lastName,
+              description,
+              location,
+              picturePath,
+              userPicturePath,
+              likes,
+              comments,
+            }) => (
+              <PostWidget
                 key={_id}
                 postId={_id}
                 postUserId={userId}
@@ -59,11 +59,13 @@ const PostsWidget = ({ userId, isProfile }) => {
                 userPicturePath={userPicturePath}
                 likes={likes}
                 comments={comments}
-                />
-              )
-            )}
+              />
+            )
+          )}
         </>
-    )
-};
+      );
+    };
+    
+
 
 export default PostsWidget;
