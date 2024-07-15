@@ -5,6 +5,7 @@ import { setFriends } from '@/state';
 import FlexBetween from "./FlexBetween";
 import UserImage from "./userImage";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
     const main = palette.neutral.main;
     const medium = palette.neutral.medium;
 
-    const isFriends = friends.find((friend) => friend._id === friendId);
+    const isFriend = friends.find((friend) => friend._id === friendId);
 
     const patchFriends = async () => {
         const response = await fetch(
@@ -35,6 +36,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
             const data = await response.json();
             dispatch(setFriends({ friends: data }));
     };
+   
     return (
         <FlexBetween>
             <FlexBetween gap="1rem">
@@ -64,7 +66,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
             </FlexBetween>
             <IconButton onClick={()=> patchFriends()}
                 sx={{backgroundColor:primaryLight,p:"0.6rem"}}>
-                    {isFriends?(
+                    {isFriend?(
                         <PersonRemoveOutlined sx={{color:primaryDark}}/>
                     ):(
                         <PersonAddOutlined sx={{color:primaryDark}}/>
