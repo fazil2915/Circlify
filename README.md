@@ -1,7 +1,13 @@
 # Circlify
 A social media application 
 
-> The project is under development.🛠️🚧!!
+#### Technologies Used:
+>- Nodejs (BackEnd)
+>- Reactjs (FrontEnd)
+>- MongoDB
+>- Mongoose
+
+
 
 #### Databse configuration 
 ##### ER diagram :
