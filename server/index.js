@@ -54,7 +54,7 @@ app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoute)
 app.use("/api/posts",postRoute)
 app.get("/",(req,res)=>{
-    res.send("hey there");
+    res.send("hey there!!");
 })
 //server
 const startServer= ()=>{
@@ -62,9 +62,7 @@ const startServer= ()=>{
         connectDb(process.env.MONGO_URL);
         app.listen(process.env.PORT||8000,()=>{
             console.log(`server running on http://localhost:${process.env.PORT}`);
-        })//adding data
-        // User.insertMany(users);
-        // Post.insertMany(posts);
+        })
     } catch (error) {
         console.log(error);
     }
