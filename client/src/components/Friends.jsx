@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { _id } = useSelector((state) => state.user);
@@ -24,7 +25,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
 
     const patchFriends = async () => {
         const response = await fetch(
-            `http://localhost:8000/api/user/${_id}/${friendId}`,
+            `${import.meta.env.VITE_BASE_URL}/api/user/${_id}/${friendId}`,
             {
                 method: "PATCH",
                 headers: {

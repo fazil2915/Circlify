@@ -22,7 +22,7 @@ import {
     const main = palette.neutral.main;
   
     const getUser = async () => {
-      const response = await fetch(`http://localhost:8000/api/user/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/user/${userId}`, {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });

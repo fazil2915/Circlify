@@ -9,7 +9,7 @@ const PostsWidget = ({ userId, isProfile=false }) => {
     const token = useSelector((state) => state.token);
 
     const getPosts = async () => {
-        const response = await fetch("http://localhost:8000/api/posts", {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/posts`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -18,7 +18,7 @@ const PostsWidget = ({ userId, isProfile=false }) => {
     }
 
     const getUserPosts = async () => {
-        const response = await fetch(`http://localhost:8000/api/posts/${userId}/post`, {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/posts/${userId}/post`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
