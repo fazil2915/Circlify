@@ -60,8 +60,8 @@ app.get("/",(req,res)=>{
 const startServer= ()=>{
     try {
         connectDb(process.env.MONGO_URL);
-        app.listen(8000,()=>{
-            console.log("server running on http://localhost:8000");
+        app.listen(process.env.PORT||8000,()=>{
+            console.log(`server running on http://localhost:${process.env.PORT}`);
         })//adding data
         // User.insertMany(users);
         // Post.insertMany(posts);
