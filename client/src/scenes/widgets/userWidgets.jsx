@@ -38,7 +38,7 @@ import {
     useEffect(() => {
       getUser();
     
-    },[user?.friends]); // eslint-disable-line react-hooks/exhaustive-deps
+    },[]); // eslint-disable-line react-hooks/exhaustive-deps
   
     if (!user) {
       return null;
