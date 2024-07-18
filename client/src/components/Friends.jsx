@@ -37,7 +37,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
             const data = await response.json();
             dispatch(setFriends({ friends: data }));
     };
-   
+
     return (
         <FlexBetween>
             <FlexBetween gap="1rem">
@@ -52,7 +52,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
                     fontWeight="500"
                     sx={{
                         "&:hover":{
-                            color:palette.primary.ligth,
+                            color:palette.primary.light,
                             cursor:"pointer"
                         }
                     }}>

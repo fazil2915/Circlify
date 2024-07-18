@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
     ManageAccountsOutlined,
     EditOutlined,
@@ -36,7 +38,7 @@ import {
     useEffect(() => {
       getUser();
     
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    },[user?.friends]); // eslint-disable-line react-hooks/exhaustive-deps
   
     if (!user) {
       return null;
@@ -151,4 +153,4 @@ import {
     );
   };
   
-  export default UserWidget;
+  export default React.memo(UserWidget);
