@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div style={{display:"flex",justifyContent:"center",marginTop:"50%"}}>Loading...</div>}>
             <Routes>
               <Route path='/' element={<LoginPage />} />
               {/* Wrap HomePage with Suspense fallback */}
