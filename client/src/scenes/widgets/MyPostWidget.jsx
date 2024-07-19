@@ -1,3 +1,6 @@
+import React from 'react';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import {
     EditOutlined,
     DeleteOutlined,
@@ -21,6 +24,20 @@ import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import  { setPosts } from "@/state"
 
+
+const notify=()=>{
+  toast.success('checkout below !', {
+    position:"top-right",
+    autoClose:5000,
+    theme:"dark",
+    transition:Bounce,
+    closeOnClick:true,
+    pauseOnHover:true,
+    draggable:true
+
+
+    });
+}
 
 const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
@@ -150,10 +167,12 @@ const MyPostWidget = ({ picturePath }) => {
               <MoreHorizOutlined sx={{ color: mediumMain }} />
             </FlexBetween>
           )}
-  
+          <div onClick={notify}>
+            
           <Button
             disabled={!post}
             onClick={handlePost}
+            
             sx={{
               color: palette.background.alt,
               backgroundColor: palette.primary.main,
@@ -163,6 +182,9 @@ const MyPostWidget = ({ picturePath }) => {
           >
             POST
           </Button>
+          <ToastContainer 
+          />
+          </div>
         </FlexBetween>
       </WidgetWrapper>
     );
