@@ -22,8 +22,10 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
     const medium = palette.neutral.medium;
 
     const isFriend = friends.find((friend) => friend._id === friendId);
+    const isOwnerProfile=_id=== friendId
 
     const patchFriends = async () => {
+        
         const response = await fetch(
             `${import.meta.env.VITE_BASE_URL}/api/user/${_id}/${friendId}`,
             {
@@ -65,6 +67,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
                     </Typography>
                 </Box>
             </FlexBetween>
+            {!isOwnerProfile &&(
             <IconButton onClick={()=> patchFriends()}
                 sx={{backgroundColor:primaryLight,p:"0.6rem"}}>
                     {isFriend?(
@@ -74,6 +77,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
                     )}
 
             </IconButton>
+            )}
         </FlexBetween>
     )
 

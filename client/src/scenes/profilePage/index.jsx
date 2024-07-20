@@ -49,9 +49,7 @@ return (
         flexBasis={isNonMobileScreens ? "42%" : undefined}
         mt={isNonMobileScreens ? undefined : "2rem"}
       >
-        <MyPostWidget picturePath={user.picturePath} />
-        <Box m="2rem 0" />
-        <PostsWidget userId={userId} isProfile />
+         <PostsWidget userId={userId} isProfile />
       </Box>
     </Box>
   </Box>

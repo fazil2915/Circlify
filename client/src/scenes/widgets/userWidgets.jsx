@@ -38,7 +38,7 @@ import {
     useEffect(() => {
       getUser();
     
-    },[]); // eslint-disable-line react-hooks/exhaustive-deps
+    },[user?.friends]); // eslint-disable-line react-hooks/exhaustive-deps
   
     if (!user) {
       return null;
@@ -60,7 +60,7 @@ import {
         <FlexBetween
           gap="0.5rem"
           pb="1.1rem"
-          onClick={() => navigate(`/profile/${userId}`)}
+          // onClick={() => navigate(`/profile/${userId}`)}
         >
           <FlexBetween gap="1rem">
             <UserImage image={picturePath} />

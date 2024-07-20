@@ -1,8 +1,11 @@
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
     FavoriteOutlined,
     ShareOutlined,
+    AddCommentOutlined,
+    
   } from "@mui/icons-material";
   import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
   import FlexBetween from "@/components/FlexBetween";
@@ -46,6 +49,20 @@ import {
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
     };
+
+    const Upcoming=()=>{
+      toast.info('Coming Soon!', {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        });
+    }
   
     return (
       <WidgetWrapper m="2rem 0">
@@ -94,6 +111,10 @@ import {
         </FlexBetween>
         {isComments && (
           <Box mt="0.5rem">
+            <IconButton onClick={Upcoming}> 
+               < AddCommentOutlined/>
+               <ToastContainer/>
+            </IconButton>
             {comments.map((comment, i) => (
               <Box key={`${name}-${i}`}>
                 <Divider />
