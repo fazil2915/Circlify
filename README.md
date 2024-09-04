@@ -4,10 +4,10 @@ Circlify is a social media application project that emphasizes building a compre
 
 ![Diagram](https://raw.githubusercontent.com/fazil2915/Circlify/main/server/images/sc1.png)
 #### Technologies Used:
->- Nodejs (BackEnd)
->- Reactjs (FrontEnd)
->- MongoDB
->- Mongoose
+
+>- Frontend: Built using React.js, Redux, and Material-UI to provide a dynamic and responsive user interface.
+>- Backend: Developed with Node.js and Express.js, implementing RESTful services to handle API requests.
+>- Database: Utilizes MongoDB to manage and store user data, posts, comments, and interactions.
 
 
 
