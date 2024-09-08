@@ -10,7 +10,6 @@ Circlify is a social media application project that emphasizes building a compre
 >- Database: Utilizes MongoDB to manage and store user data, posts, comments, and interactions.
 
 
-
 #### Databse configuration 
 ##### ER diagram :
 
